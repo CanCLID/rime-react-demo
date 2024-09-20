@@ -8,6 +8,8 @@ const NO_AUTO_FILL = {
 	spellCheck: "false",
 } as const;
 
+const assetsPrefix = process.env.NODE_ENV === "production" ? "" : "/assets/";
+
 function Loading() {
 	return useRimeContext().isLoading && <>
 		<span id="loading-dots"></span>
@@ -17,8 +19,8 @@ function Loading() {
 
 function Demo() {
 	return <RimeReact
-		pathToRimeJS="https://unpkg.com/rime-react/dist/rime.js"
-		pathToRimeWASM="https://unpkg.com/rime-react/dist/rime.wasm"
+		pathToRimeJS={`${assetsPrefix}rime.js`}
+		pathToRimeWASM={`${assetsPrefix}rime.wasm`}
 		schemaFilesFetchPrefix="https://cdn.jsdelivr.net/gh/CanCLID/librime/data/minimal"
 		schemaFilesToSHA256={{
 			"build/cangjie5.prism.bin": "5e47829a92dfae9bf1732d2eb7e57f1e23572df940631ad9e2c524f051910fef",
