@@ -4,12 +4,13 @@ import { viteStaticCopy } from "vite-plugin-static-copy";
 import type { UserConfig } from "vite";
 
 export default {
+	base: "./",
 	plugins: [
 		react(),
 		viteStaticCopy({
 			targets: [
 				{
-					src: "node_modules/rime-react/dist/rime.*",
+					src: "node_modules/rime-react/dist/*r*.*",
 					dest: "assets",
 				},
 			],
